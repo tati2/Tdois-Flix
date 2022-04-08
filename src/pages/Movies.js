@@ -1,31 +1,7 @@
 import React from "react"
 import apiFilmes from "../services/MoviesApi"
-
-import styled from "styled-components"
-
-const Card = styled.div`
-width: 100%;
-display:flex;
-flex-wrap:wrap;
-`
-const Img = styled.img`
-width: 30%;
-`
-
-const Busca = styled.div`
-display:flex;
-justify-content: space-around;
-align-items: center;
-height: 20vh;
-`
-
-const CampoBusca = styled.input`
-width: 40%;
-height: 5vh;
-border-radius: 10px;
-text-align: center;
-
-`
+import GlobalStyle from "./GlobalStyle"
+import * as S from "./Style"
 
 
 export default class Movies extends React.Component {
@@ -73,25 +49,26 @@ export default class Movies extends React.Component {
 
     render() {
         return (
-            <div>
-                <Busca>
+            <S.Container>
+                <GlobalStyle/>
+                <S.Busca>
                     <h1>Filmes</h1>
-                    <CampoBusca
+                    <S.CampoBusca
                         type="text"
                         placeholder="buscar..."
                         onChange={this.filtro}
                     />
-                </Busca>
-                <Card>
+                </S.Busca>
+                <S.BoxMap>
                     {this.state.pesquisaDeFilmes.map((item) => (
-                        <div>
-                            {/* <h2>{item.title}</h2> */}
-                            <Img src={item.poster_path} alt={item.title} />
+                        <S.Card>
+                            <S.TitleRef>{item.title}</S.TitleRef>
+                            <S.Img src={item.poster_path} alt={item.title} />
                             {/* <p>{item.overview}</p> */}
-                        </div>
+                        </S.Card>
                     ))}
-                </Card>
-            </div>
+                </S.BoxMap>
+            </S.Container>
         )
     }
 }

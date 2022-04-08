@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import * as S from "./Style"
 
 const apiSeries = axios.create({
     baseURL: "https://api.themoviedb.org/3/tv/popular?api_key=f5e33b7872870b499cdef685aff18b48&language=pt-BR"
@@ -50,17 +51,18 @@ export default class Series extends React.Component {
     render() {
         return (
             <div>
+                <S.Busca>
                 <h1>Series</h1>
-                <h2>Teste</h2>
-                <input onChange={this.filtroBusca} />
-                <div>
+                <S.CampoBusca onChange={this.filtroBusca} />
+                </S.Busca>
+                <S.BoxMap>
                     {this.state.buscaSeries.map((item) => (
                         <div>
                             <h2>{item.name}</h2>
-                            <img src={item.poster_path} alt={item.name} />
+                            <S.Img src={item.poster_path} alt={item.name} />
                         </div>
                     ))}
-                </div>
+                </S.BoxMap>
             </div>
         )
     }
