@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const BoxMap = styled.div`
   display: flex;
-  width: 90vw;
+  width: 80vw;
   /* height: 70vh; */
   flex-wrap: wrap;
   align-items: center;

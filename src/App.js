@@ -4,16 +4,7 @@ import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import Home from "./pages/Home";
 import styled from "styled-components"
-import {createGlobalStyle} from "styled-components"
 
-
-const GlobalStyle = createGlobalStyle`
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-`
 const Menu = styled.ul`
 display:flex;
 justify-content: space-evenly;
@@ -38,7 +29,6 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <GlobalStyle/>
         <nav>
           <Menu>
           <li>

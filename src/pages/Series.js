@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import GlobalStyle from "./GlobalStyle"
 import * as S from "./Style"
 
 const apiSeries = axios.create({
@@ -50,20 +51,23 @@ export default class Series extends React.Component {
 
     render() {
         return (
-            <div>
+            <S.Container>
+                <GlobalStyle/>
                 <S.Busca>
                 <h1>Series</h1>
-                <S.CampoBusca onChange={this.filtroBusca} />
+                <S.CampoBusca onChange={this.filtroBusca}
+                placeholder="Buscar..."
+                />
                 </S.Busca>
                 <S.BoxMap>
                     {this.state.buscaSeries.map((item) => (
-                        <div>
-                            <h2>{item.name}</h2>
+                        <S.Card>
+                            <S.TitleRef>{item.name}</S.TitleRef>
                             <S.Img src={item.poster_path} alt={item.name} />
-                        </div>
+                        </S.Card>
                     ))}
                 </S.BoxMap>
-            </div>
+            </S.Container>
         )
     }
 }
